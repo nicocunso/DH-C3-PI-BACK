@@ -92,18 +92,23 @@ INSERT INTO renta_autos.tipo_usuarios(id_tipo_usuario, usuario, contrasena, crea
 INSERT INTO renta_autos.tipo_usuarios(id_tipo_usuario, usuario, contrasena, creado, actualizado, creado_por, actualizado_por) VALUES(2, "empleado", "dfg_234", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.tipo_usuarios(id_tipo_usuario, usuario, contrasena, creado, actualizado, creado_por, actualizado_por) VALUES(3, "Administrador", "mnc_234", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
+### Registros renta_autos.favoritos ###
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(1, 2, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(2, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(3, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(4, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(5, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(6, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(7, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(8, 2, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(9, 5, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(10, 9, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
 
 
+
+
+SELECT * FROM renta_autos.favoritos; 
 SELECT * FROM renta_autos.usuarios; 
-
-
-
-
-
-
-
-
-
 select * from renta_autos.tipo_autos;
 select * from renta_autos.autos;
 select * from renta_autos.rentas;
