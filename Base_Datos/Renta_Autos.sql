@@ -142,9 +142,13 @@ primary key (id),
 foreign key (id_auto) references renta_autos.autos (id)
 ); 
 
-
-
-
-
-
-
+CREATE table if not exists renta_autos.favoritos(
+id_cliente int not null, 
+id_auto int not null, 
+creado timestamp not null,
+actualizado timestamp not null,
+creado_por varchar (20) not null,
+actualizado_por varchar (20) not null,
+foreign key (id_cliente) references renta_autos.clientes (id), 
+foreign key (id_auto) references renta_autos.autos (id)
+); 

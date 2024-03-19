@@ -3,6 +3,7 @@ package com.carbook.backend.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,6 +27,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.requestMatchers(publicEndpoints()).permitAll()
+          //              .requestMatchers("/usuario/admin/**").hasRole("ADMIN") <-- Pendiente de implementar
                         .anyRequest().authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
@@ -35,9 +37,10 @@ public class WebSecurityConfig {
 
     private RequestMatcher publicEndpoints(){
         return new OrRequestMatcher(  // <-- aqui van los endpoints publicos
-          new AntPathRequestMatcher("/usuario/publico"),
+                new AntPathRequestMatcher("/demo/publico"),
                 new AntPathRequestMatcher("/auth/**"),
-                new AntPathRequestMatcher("/autos/**")
+                new AntPathRequestMatcher("/autos/**"),
+                new AntPathRequestMatcher("/usuario/admin/**")
         );
     }
 }

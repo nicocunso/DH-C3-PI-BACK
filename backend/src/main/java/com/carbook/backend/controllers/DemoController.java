@@ -3,7 +3,7 @@ package com.carbook.backend.controllers;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/demo")
 public class DemoController {
 
     @GetMapping("/publico")
