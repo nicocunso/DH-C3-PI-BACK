@@ -40,7 +40,9 @@ public class WebSecurityConfig {
                 new AntPathRequestMatcher("/demo/publico"),
                 new AntPathRequestMatcher("/auth/**"),
                 new AntPathRequestMatcher("/autos/**"),
-                new AntPathRequestMatcher("/usuario/admin/**")
+                new AntPathRequestMatcher("/usuario/admin/**"),
+                new AntPathRequestMatcher("/usuarios"),
+                new AntPathRequestMatcher("/usuarios/identificar")
         );
     }
 }
