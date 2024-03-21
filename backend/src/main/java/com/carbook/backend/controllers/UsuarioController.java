@@ -23,22 +23,19 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.find());
     }
 
+    @PostMapping
+    public ResponseEntity<AuthResponse> create(@RequestBody CrearUsuarioDto crearUsuario){
+        return ResponseEntity.ok(usuarioService.create(crearUsuario));
+    }
+
+    @PostMapping("/identificar")
+    public ResponseEntity<AuthResponse> login(@RequestBody IdentificarUsuarioDto identificarUsuario){
+        return ResponseEntity.ok(usuarioService.login(identificarUsuario));
+    }
+
     @PutMapping("/{id}")
     public String updateRole(@PathVariable Long id){
         usuarioService.updateRole(id);
         return "Rol de usuario actualizado";
-    }
-
-    @PostMapping
-    public ResponseEntity<AuthResponse> create(@RequestBody CrearUsuarioDto crearUsuario){
-        System.out.println("crearUsuario");
-        System.out.println(crearUsuario);
-        return ResponseEntity.ok(usuarioService.create(crearUsuario));
-    }
-
-    @GetMapping("/identificar")
-    public ResponseEntity<AuthResponse> login(@RequestBody IdentificarUsuarioDto identificarUsuario){
-        return ResponseEntity.ok(usuarioService.login(identificarUsuario));
-
     }
 }

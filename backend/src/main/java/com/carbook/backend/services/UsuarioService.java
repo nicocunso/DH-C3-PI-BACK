@@ -7,9 +7,11 @@ import com.carbook.backend.dtos.IdentificarUsuarioDto;
 import com.carbook.backend.entities.Usuario;
 import com.carbook.backend.entities.RolUsuario;
 import com.carbook.backend.repository.UsuarioRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,19 +23,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UsuarioService implements UserDetailsService {
     @Autowired
-    private UsuarioRepository usuarioRepository;
-    private PasswordEncoder passwordEncoder;
-    private JWTService jwtService;
-    private AuthenticationManager authenticationManager;
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JWTService jwtService;
+    private final AuthenticationManager authenticationManager;
 
     public List<Usuario> find() {
         return usuarioRepository.findAll();
     }
 
     public AuthResponse create(CrearUsuarioDto crearUsuario) {
-        System.out.println("Hasta aca va 0");
         Usuario usuario = Usuario.builder()
                 .nombre(crearUsuario.getNombre())
                 .apellido(crearUsuario.getApellido())
@@ -42,9 +44,7 @@ public class UsuarioService implements UserDetailsService {
                 .rol(RolUsuario.ROLE_USER)
                 .build();
         usuarioRepository.save(usuario);
-        System.out.println("Hasta aca va 1");
         String jwtToken = jwtService.generateToken(usuario);
-        System.out.println("Hasta aca va 2");
         return AuthResponse.builder().token(jwtToken).build();
     }
 
@@ -56,9 +56,16 @@ public class UsuarioService implements UserDetailsService {
                 )
         );
         Usuario usuario = usuarioRepository.findByEmail(identificarUsuario.getEmail()).orElseThrow();
+        if (usuario.getRol() != identificarUsuario.getRol()) {
+            throw new AuthenticationException("Usuario no autorizado") {
+            };
+        }
         String jwtToken = jwtService.generateToken(usuario);
-
-        return AuthResponse.builder().token(jwtToken).build();
+        AuthResponse authResponse = AuthResponse.builder()
+                .token(jwtToken)
+                .rol(usuario.getRol())
+                .build();
+        return authResponse;
     }
 
     @Override
