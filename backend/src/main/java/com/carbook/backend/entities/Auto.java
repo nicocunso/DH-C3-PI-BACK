@@ -1,12 +1,11 @@
 package com.carbook.backend.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,10 +16,7 @@ public class Auto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-/*
-    @Column(name = "id_tipo_auto")
-    private Long idTipoAuto;
-*/
+
     @Column
     private String matricula;
 
@@ -29,12 +25,14 @@ public class Auto {
 
     @Column
     private Integer anno;
-/*
+
     @Column(name = "tipo_combustible")
     private String tipoCombustible;
 
+    /*
     @Column
     private String transmision;
+     */
 
     @Column
     private Integer kilometraje;
@@ -49,9 +47,14 @@ public class Auto {
     private Integer numeroPuertas;
 
     @Column(name = "aire_acondicionado")
-    private char aireAcondicionado;
-*/
+    private Integer aireAcondicionado;
+
     @Column
     @OneToMany(mappedBy = "auto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Imagen> imagenes;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @JoinColumn(name = "id_tipo_auto")
+    private TipoAuto tipo;
 }

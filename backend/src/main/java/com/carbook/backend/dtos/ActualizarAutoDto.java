@@ -1,5 +1,6 @@
 package com.carbook.backend.dtos;
 
+import com.carbook.backend.entities.TipoAuto;
 import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +9,10 @@ import lombok.Setter;
 @Setter
 public class ActualizarAutoDto {
     private Long id;
-    private Integer anno;
     private Integer kilometraje;
     private Integer precioXDia;
     private String estado;
+    private Integer aireAcondicionado;
+    private TipoAuto tipo;
 }
 

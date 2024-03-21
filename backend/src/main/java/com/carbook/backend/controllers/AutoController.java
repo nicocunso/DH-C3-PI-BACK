@@ -40,11 +40,12 @@ public class AutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Auto> create(@RequestPart MultipartFile[] imageFiles, @RequestPart String auto) throws IOException {
+    public ResponseEntity<Auto> create(@RequestBody Auto auto) {
+        // System.out.println(imageFiles);
         //1. se convierte el string auto a un objeto Auto para interactuar con el servicio
-        Auto autoObj = convertToAuto(auto);
+        // Auto autoObj = convertToAuto(auto);
 
-        return ResponseEntity.ok(autoService.create(autoObj,imageFiles));
+        return ResponseEntity.ok(autoService.create(auto));
     }
 
     private Auto convertToAuto(String autoObj) throws JsonProcessingException {
@@ -52,7 +53,7 @@ public class AutoController {
         return objectMapper.readValue(autoObj,Auto.class);
 
     }
-/*
+
     @PutMapping
     public ResponseEntity<String> update(@RequestBody ActualizarAutoDto actualizarAuto) {
         Optional<Auto> result = autoService.update(actualizarAuto);
@@ -62,15 +63,17 @@ public class AutoController {
             return ResponseEntity.badRequest().body("El auto indicado no existe");
         }
     }
-*/
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
+    public ResponseEntity<List<Auto>> delete(@PathVariable Long id) {
         Optional<Auto> result = autoService.getById(id);
         if (result.isPresent()) {
             autoService.delete(id);
-            return ResponseEntity.ok("Auto eliminado correctamente");
+            return this.find();
+            // return ResponseEntity.ok("Auto eliminado correctamente");
         } else {
-            return ResponseEntity.badRequest().body("El auto indicado no existe");
+            return ResponseEntity.notFound().build();
+            // return ResponseEntity.badRequest().body("El auto indicado no existe");
         }
     }
 }

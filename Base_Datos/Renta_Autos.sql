@@ -1,20 +1,35 @@
 ### Borrar la base de datos y las tablas si existen 
 drop database if exists renta_autos;
-drop table if exists renta_autos.clientes;
+drop table if exists renta_autos.tipo_usuarios;
+drop table if exists renta_autos.usuarios;
 drop table if exists renta_autos.pagos;
 drop table if exists renta_autos.facturas;
 drop table if exists renta_autos.rentas;
 drop table if exists renta_autos.tipo_autos;
 drop table if exists renta_autos.autos;
-drop table if exists renta_autos.usuarios;
-drop table if exists renta_autos.tipo_usuarios;
+drop table if exists renta_autos.imagenes; 
+drop table if exists renta_autos.favoritos; 
 
 ### Crear la Base de datos de Renta de Autos
 CREATE database if not exists renta_autos;
 
 ### Crear tablas de renta de autos
-CREATE table if not exists renta_autos.clientes(
+
+CREATE table if not exists renta_autos.tipo_usuarios(
+id int not null auto_increment,
+tipo_usuario varchar (20) not null, 
+descripcion varchar (50) null,
+creado timestamp not null,
+actualizado timestamp null,
+creado_por varchar (20) not null,
+actualizado_por varchar (20) not null,
+primary key (id)
+);
+
+
+CREATE table if not exists renta_autos.usuarios(
 id int not null auto_increment, 
+id_tipo_Usuario int not null,
 tipo_documento varchar (3) not null,
 numero_documento varchar (20) not null,
 nombres varchar (50) not null,
@@ -27,8 +42,10 @@ creado timestamp not null,
 actualizado timestamp null,
 creado_por varchar (20) not null,
 actualizado_por varchar (20) not null,
-primary key (id)
+primary key (id),
+foreign key (id_tipo_usuario) references renta_autos.tipo_usuarios (id)
 );
+
 
 CREATE table if not exists renta_autos.tipo_autos(
 id int not null auto_increment,
@@ -64,7 +81,7 @@ foreign key (id_tipo_auto) references renta_autos.tipo_autos (id)
 
 CREATE table if not exists renta_autos.rentas(
 id int not null auto_increment,
-id_cliente int not null, 
+id_usuario int not null, 
 id_auto int not null, 
 fecha_inicio timestamp not null,
 fecha_entrega timestamp not null,
@@ -73,7 +90,7 @@ actualizado timestamp null,
 creado_por varchar (20) not null,
 actualizado_por varchar (20) not null,
 primary key (id),
-foreign key (id_cliente) references renta_autos.clientes (id),
+foreign key (id_usuario) references renta_autos.usuarios (id),
 foreign key(id_auto) references renta_autos.autos (id)
 );
 
@@ -106,29 +123,6 @@ primary key (id),
 foreign key (id_factura) references renta_autos.facturas (id)
 );
 
-CREATE table if not exists renta_autos.tipo_usuarios(
-id int not null auto_increment,
-tipo_usuario varchar (20) not null, 
-descripcion varchar (50) null,
-creado timestamp not null,
-actualizado timestamp null,
-creado_por varchar (20) not null,
-actualizado_por varchar (20) not null,
-primary key (id)
-);
-
-CREATE table if not exists renta_autos.usuarios(
-id int not null auto_increment,
-id_tipo_usuario int not null, 
-usuario varchar (20) null,
-contrasena varchar (20) null,
-creado timestamp not null,
-actualizado timestamp null,
-creado_por varchar (20) not null,
-actualizado_por varchar (20) not null,
-primary key (id),
-foreign key (id_tipo_usuario) references renta_autos.tipo_usuarios (id)
-);
 
 CREATE table if not exists renta_autos.imagenes(
 id int not null auto_increment, 
@@ -143,12 +137,12 @@ foreign key (id_auto) references renta_autos.autos (id)
 ); 
 
 CREATE table if not exists renta_autos.favoritos(
-id_cliente int not null, 
+id_usuario int not null, 
 id_auto int not null, 
 creado timestamp not null,
 actualizado timestamp not null,
 creado_por varchar (20) not null,
 actualizado_por varchar (20) not null,
-foreign key (id_cliente) references renta_autos.clientes (id), 
+foreign key (id_usuario) references renta_autos.usuarios (id), 
 foreign key (id_auto) references renta_autos.autos (id)
 ); 
