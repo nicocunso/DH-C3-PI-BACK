@@ -27,37 +27,40 @@ public class AutoService {
         return autoRepository.findById(id);
     }
 
-    public Auto create(Auto auto, MultipartFile[] imageFiles) throws IOException {
+    public Auto create(Auto auto) {
         //1. guardamos el auto
         Auto autocreado = autoRepository.save(auto);
         //2. Cargamos las imagenes
-        List<Imagen> uploadedFiles = imagenService.upload(autocreado.getId(),imageFiles);
+        // List<Imagen> uploadedFiles = imagenService.upload(autocreado.getId(),imageFiles);
         //3. Setteamos el valor del campo 'imagenes' con las imagenes cargadas
-        autocreado.setImagenes(uploadedFiles);
+        // autocreado.setImagenes(uploadedFiles);
         //4. Retornamos el autocreado
         return autocreado;
     }
-/*
+
     public Optional<Auto> update(ActualizarAutoDto actualizarAuto) {
         Optional<Auto> auto = this.getById(actualizarAuto.getId());
         auto.ifPresent(autoActualizar -> {
-            if (actualizarAuto.getAnno() != null) {
-                autoActualizar.setAnno(actualizarAuto.getAnno());
-            };
             if (actualizarAuto.getKilometraje() != null) {
                 autoActualizar.setKilometraje(actualizarAuto.getKilometraje());
+            };
+            if (actualizarAuto.getPrecioXDia() != null) {
+                autoActualizar.setPrecioXDia(actualizarAuto.getPrecioXDia());
             };
             if (actualizarAuto.getEstado() != null) {
                 autoActualizar.setEstado(actualizarAuto.getEstado());
             };
-            if (actualizarAuto.getPrecioXDia() != null) {
-                autoActualizar.setPrecioXDia(actualizarAuto.getPrecioXDia());
+            if (actualizarAuto.getAireAcondicionado() != null) {
+                autoActualizar.setAireAcondicionado(actualizarAuto.getAireAcondicionado());
+            };
+            if (actualizarAuto.getTipo() != null) {
+                autoActualizar.setTipo(actualizarAuto.getTipo());
             };
             autoRepository.save(autoActualizar);
         });
         return auto;
     }
-*/
+
     public void delete(Long id) {
         autoRepository.deleteById(id);
     }

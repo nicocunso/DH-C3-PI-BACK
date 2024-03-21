@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthResponse {
-    private String token;
+public class IdentificarUsuarioDto {
+    private String email;
+    private String contrasena;
     @Enumerated(EnumType.ORDINAL)
     private RolUsuario rol;
 }
