@@ -16,5 +16,7 @@ jobs:
         run: ls
       - name: Pulling project
         run: git pull
+      - name: moving to project
+        run: cd backend/ 
       - name: Up docker compose
-        run: sudo ./backend/script.sh
+        run: sudo ./script.sh
