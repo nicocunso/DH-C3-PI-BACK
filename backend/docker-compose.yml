@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-carbook
+    restart: always
+    environment:
+      MYSQL_DATABASE: "carbook"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "HorEmi1418"
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_SSL_CIPHER: "TLSv1.2"
+    ports:
+      - "3366:3306"
+    expose:
+      - "3306"
+  backend:
+    image: img-carbook-backend
+    container_name: backend-carbook
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
