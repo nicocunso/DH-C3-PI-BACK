@@ -1,0 +1,20 @@
+name: Back test aws
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: aws-back
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check
+        run: ls
+      - name: Pulling project
+        run: git pull
+      - name: Up docker compose
+        run: ./script.sh
