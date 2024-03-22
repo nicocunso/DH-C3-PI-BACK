@@ -35,6 +35,11 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.findAll();
     }
 
+    public List<Usuario> findByRol(Integer rol) {
+        RolUsuario rolUsuario = rol == 1 ? RolUsuario.ROLE_ADMIN : RolUsuario.ROLE_USER;
+        return usuarioRepository.findAllByRol(rolUsuario);
+    }
+
     public AuthResponse create(CrearUsuarioDto crearUsuario) {
         Usuario usuario = Usuario.builder()
                 .nombre(crearUsuario.getNombre())

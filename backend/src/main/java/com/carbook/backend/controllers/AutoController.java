@@ -31,7 +31,6 @@ public class AutoController {
     @GetMapping("/{id}")
     public ResponseEntity<Auto> getById(@PathVariable Long id) {
         Optional<Auto> result = autoService.getById(id);
-        System.out.println(result);
         if (result.isPresent()) {
             return ResponseEntity.ok(result.get());
         } else {
@@ -41,7 +40,6 @@ public class AutoController {
 
     @PostMapping
     public ResponseEntity<Auto> create(@RequestBody Auto auto) {
-        // System.out.println(imageFiles);
         //1. se convierte el string auto a un objeto Auto para interactuar con el servicio
         // Auto autoObj = convertToAuto(auto);
 

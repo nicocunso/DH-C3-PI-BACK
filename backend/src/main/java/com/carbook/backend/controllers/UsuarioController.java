@@ -3,6 +3,7 @@ package com.carbook.backend.controllers;
 import com.carbook.backend.dtos.AuthResponse;
 import com.carbook.backend.dtos.CrearUsuarioDto;
 import com.carbook.backend.dtos.IdentificarUsuarioDto;
+import com.carbook.backend.entities.RolUsuario;
 import com.carbook.backend.entities.Usuario;
 import com.carbook.backend.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class UsuarioController {
     @GetMapping
     public ResponseEntity<List<Usuario>> find() {
         return ResponseEntity.ok(usuarioService.find());
+    }
+
+    @GetMapping("/roles/{rol}")
+    public ResponseEntity<List<Usuario>> findByRol(@PathVariable Integer rol) {
+        return ResponseEntity.ok(usuarioService.findByRol(rol));
     }
 
     @PostMapping
