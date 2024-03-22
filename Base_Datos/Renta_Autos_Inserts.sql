@@ -1,3 +1,21 @@
+### Registros renta_autos.tipo_usuarios ###
+INSERT INTO renta_autos.tipo_usuarios(tipo_usuario, descripcion, creado, actualizado, creado_por, actualizado_por) VALUES(1, "administrador", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.tipo_usuarios(tipo_usuario, descripcion, creado, actualizado, creado_por, actualizado_por) VALUES(2, "empleado", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.tipo_usuarios(tipo_usuario, descripcion, creado, actualizado, creado_por, actualizado_por) VALUES(3, "usuario", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+
+### Registros renta_autos.usuarios ###
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 1, "CC", "71099422", "Carlos Andres",  "Perez Borges",  "121230019034", "calle 77 sur #46-29 Envigado Antioquia", "carlos_borges34@gmail.com", "1977-06-11",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 2, "TP", "819451", "Martin Fabian",  "Cerati  Quiroja",  "121030015036", "calle 88 sur #44-99 Sabaneta Antioquia", "cerati_quiroja54@gmail.com", "1989-08-30",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 3, "TP", "91099488", "Sofia Andrea",  "Patiño Quintero ",  "121238819034", "Carrera 33 sur #108-48  Antioquia", "sofiAndre_974@gmail.com", "1997-11-10",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 1, "CC", "71099422", "Christina",  "Hurtado Velasquez",  "125430019034", "Diagonal 44A  #36-24 Envigado Antioquia", "cristihuta@gmail.com", "2001-03-08",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 2, "CC", "102099422", "David Alejandro",  "Torres Otalvaro",  "108230019034", "calle 44 sur #32-105 Itagui Antioquia", "daves182@gmail.com", "1988-12-18",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 3, "TP", "102236947", "Antonella",  "Fiorucci Lombardi",  "106230019034", "calle 88 sur #14-29 Envigado Antioquia", "Antonell879@gmail.com", "2002-01-24",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 1, "CC", "78125364", "Marcos",  "Gonzalez Tobon",  "121230019000", "calle 108 sur #120-29 Envigado Antioquia", "marcosgonzato82@gmail.com", "1984-10-30",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 2, "CC", "43185269", "Catalina Miranda",  "Sotelo Camacho",  "121245019034", "carrera 80 sur #46-29 Envigado Antioquia", "caticamira285@gmail.com", "1992-04-11",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 3,"CC", "71099422", "Mauricio Andres",  "Corrales Alzate",  "121230019477", "calle 11 sur #25-29 Envigado Antioquia", "maurosfr12@gmail.com", "1995-01-22",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.usuarios ( id_tipo_Usuario, tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ( 1, "CC", "71099422", "Juan Felipe ",  "Del Valle Montero",  "123001903434", "calle 10 sur #336-105 Poblado Antioquia", "pipe_valle22@gmail.com", "2000-08-22",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+
+
 ### Registros renta_autos.tipo_autos ###
 INSERT INTO renta_autos.tipo_autos (tipo_auto, creado, actualizado, creado_por, actualizado_por) VALUES ("Sedan","2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.tipo_autos (tipo_auto, creado, actualizado, creado_por, actualizado_por) VALUES ("Camioneta","2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
@@ -10,17 +28,6 @@ INSERT INTO renta_autos.tipo_autos (tipo_auto, creado, actualizado, creado_por, 
 INSERT INTO renta_autos.tipo_autos (tipo_auto, creado, actualizado, creado_por, actualizado_por) VALUES ("Coupe","2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.tipo_autos (tipo_auto, creado, actualizado, creado_por, actualizado_por) VALUES ("Híbrido","2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
-### Registros renta_autos.clientes ###
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "71099422", "Carlos Andres",  "Perez Borges",  "121230019034", "calle 77 sur #46-29 Envigado Antioquia", "carlos_borges34@gmail.com", "1977-06-11",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("TP", "819451", "Martin Fabian",  "Cerati  Quiroja",  "121030015036", "calle 88 sur #44-99 Sabaneta Antioquia", "cerati_quiroja54@gmail.com", "1989-08-30",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("TP", "91099488", "Sofia Andrea",  "Patiño Quintero ",  "121238819034", "Carrera 33 sur #108-48  Antioquia", "sofiAndre_974@gmail.com", "1997-11-10",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "71099422", "Christina",  "Hurtado Velasquez",  "125430019034", "Diagonal 44A  #36-24 Envigado Antioquia", "cristihuta@gmail.com", "2001-03-08",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "102099422", "David Alejandro",  "Torres Otalvaro",  "108230019034", "calle 44 sur #32-105 Itagui Antioquia", "daves182@gmail.com", "1988-12-18",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("TP", "102236947", "Antonella",  "Fiorucci Lombardi",  "106230019034", "calle 88 sur #14-29 Envigado Antioquia", "Antonell879@gmail.com", "2002-01-24",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "78125364", "Marcos",  "Gonzalez Tobon",  "121230019000", "calle 108 sur #120-29 Envigado Antioquia", "marcosgonzato82@gmail.com", "1984-10-30",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "43185269", "Catalina Miranda",  "Sotelo Camacho",  "121245019034", "carrera 80 sur #46-29 Envigado Antioquia", "caticamira285@gmail.com", "1992-04-11",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "71099422", "Mauricio Andres",  "Corrales Alzate",  "121230019477", "calle 11 sur #25-29 Envigado Antioquia", "maurosfr12@gmail.com", "1995-01-22 ",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.clientes ( tipo_documento, numero_documento, nombres, apellidos, licencia_conducir, direccion, correo_electronico,fecha_nacimiento, creado, actualizado, creado_por, actualizado_por) VALUES ("CC", "71099422", "Juan Felipe ",  "Del Valle Montero",  "123001903434", "calle 10 sur #336-105 Poblado Antioquia", "pipe_valle22@gmail.com", "2000-08-22",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
 ### Registros renta_autos.autos ###
 INSERT INTO renta_autos.autos (id_tipo_auto, matricula, marca, modelo, tipo_combustible, trasmision, kilometraje, precioXdia, estado, nro_puertas, nro_maleteros, nro_pasajeros, creado, actualizado, creado_por, actualizado_por) VALUES (1, "CZR 263", "Toyota", "Corolla 2021", "Gasolina y gas", "Automatico", 40122, "135000", "Disponible", 5, 1, 5, "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
@@ -35,16 +42,16 @@ INSERT INTO renta_autos.autos (id_tipo_auto, matricula, marca, modelo, tipo_comb
 INSERT INTO renta_autos.autos (id_tipo_auto, matricula, marca, modelo, tipo_combustible, trasmision, kilometraje, precioXdia, estado, nro_puertas, nro_maleteros, nro_pasajeros, creado, actualizado, creado_por, actualizado_por) VALUES (10, "SDF 786", "Tesla","Cybertruck 2022 ", "Gasolina", "Automatico", 40.1223, "200.000", "Disponible", 5, 1,5, "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia" );
 
 ### Registros renta_autos.rentas ###
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (1, 1,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (1, 2,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (3, 3,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (4, 4,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (5, 5,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (6, 6,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (7, 7,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (8, 8,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (9, 9,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.rentas (id_cliente, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (10, 10,  "2024-02-12 23:34:00",);
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (1, 1,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (2, 2,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (3, 3,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (4, 4,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (5, 5,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (6, 6,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (7, 7,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (8, 8,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (9, 9,  "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.rentas (id_usuario, id_auto, fecha_inicio, fecha_entrega, creado, actualizado, creado_por, actualizado_por) VALUES (10, 10, "2024-02-12 23:34:00", "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
 ### Registros renta_autos.facturas ###
 INSERT INTO renta_autos.facturas (id_renta, valor_unitario, valor_impuestos, valor_total, fecha_factura, creado, actualizado, creado_por, actualizado_por) VALUES(1, 120000, 36000, 156000,  "2024-02-12 23:34:00", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
@@ -61,10 +68,10 @@ INSERT INTO renta_autos.facturas (id_renta, valor_unitario, valor_impuestos, val
 ### Registros renta_autos.pagos ###
 INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(1, 156000, "Efectivo", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(2, 156000, "Efectivo", "Saldo pendiente",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(3, 156000, "Tarjeta de credito, pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(4, 156000, "Transferencia bancaria", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(3, 156000, "Tarjeta de credito", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(4, 156000, "Transferencia", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(5, 156000, "Efectivo", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(6, 156000, "Tarjeta de credito" ,  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(6, 156000, "Tarjeta credito", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(7, 156000, "Efectivo", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(8, 156000, "Efectivo", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.pagos (id_factura, valor_pago, forma_pago, estado_pago, creado, actualizado,  creado_por, actualizado_por) VALUES(9, 156000, "Efectivo", "pagado",  "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
@@ -82,33 +89,33 @@ INSERT INTO renta_autos.imagenes (id_auto, url, creado, actualizado, creado_por,
 INSERT INTO renta_autos.imagenes (id_auto, url, creado, actualizado, creado_por, actualizado_por) VALUES(9, "https:///imagendecarro9/","2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 INSERT INTO renta_autos.imagenes (id_auto, url, creado, actualizado, creado_por, actualizado_por) VALUES(10, "https:///imagendecarro10/","2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
-### Registros renta_autos.tipo_usuarios ###
-INSERT INTO renta_autos.tipo_usuarios(tipo_usuario, descripcion, creado, actualizado, creado_por, actualizado_por) VALUES(1, "administrador", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.tipo_usuarios(tipo_usuario, descripcion, creado, actualizado, creado_por, actualizado_por) VALUES(2, "empleado", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.tipo_usuarios(tipo_usuario, descripcion, creado, actualizado, creado_por, actualizado_por) VALUES(3, "administrador", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
-### Registros renta_autos.usuarios ###
-INSERT INTO renta_autos.tipo_usuarios(id_tipo_usuario, usuario, contrasena, creado, actualizado, creado_por, actualizado_por) VALUES(1, "Administrador", "reh_234", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.tipo_usuarios(id_tipo_usuario, usuario, contrasena, creado, actualizado, creado_por, actualizado_por) VALUES(2, "empleado", "dfg_234", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.tipo_usuarios(id_tipo_usuario, usuario, contrasena, creado, actualizado, creado_por, actualizado_por) VALUES(3, "Administrador", "mnc_234", "2010-02-12 23:34:00", "2010-02-12 23:34:00", "laura.garcia", "laura.garcia");
 
 ### Registros renta_autos.favoritos ###
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(1, 2, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(2, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(3, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(4, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(5, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(6, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(7, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(8, 2, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(9, 5, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
-INSERT INTO renta_autos.favoritos(id_cliente, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(10, 9, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(1, 2, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(2, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(3, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(4, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(5, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(6, 3, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(7, 4, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(8, 2, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(9, 5, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
+INSERT INTO renta_autos.favoritos (id_usuario, id_auto, creado, actualizado, creado_por, actualizado_por) VALUES(10, 9, "2024-03-17 23:34:00", "2024-03-17 23:34:00", "laura.garcia", "laura.garcia");
 
 
-
-
+SELECT * FROM renta_autos.tipo_usuarios;
+SELECT * FROM renta_autos.usuarios;
+SELECT * FROM renta_autos.tipo_autos;
+SELECT * FROM renta_autos.autos;
+SELECT * FROM renta_autos.rentas;
+SELECT * FROM renta_autos.facturas;
+SELECT * FROM renta_autos.pagos;
+SELECT * FROM renta_autos.imagenes;
 SELECT * FROM renta_autos.favoritos; 
-SELECT * FROM renta_autos.usuarios; 
-select * from renta_autos.tipo_autos;
-select * from renta_autos.autos;
-select * from renta_autos.rentas;
+
+
+
+
+
+
