@@ -16,7 +16,11 @@ jobs:
         run: ls
       - name: Pulling project
         run: git pull
-      - name: apply permission
-        run: sudo chmod +x ./script.sh
-      - name: Execute script
-        run: sudo ./script.sh
+      - name: Stopping containers
+        run: sudo docker compose down
+      - name: Delete image
+        run: sudo docker image rm img-carbook-backend
+      - name: Building image
+        run: sudo docker image build -t img-carbook-backend .
+      - name: Upping containers
+        run: sudo docker compose up -d
