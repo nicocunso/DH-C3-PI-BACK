@@ -16,5 +16,7 @@ jobs:
         run: ls
       - name: Pulling project
         run: git pull
-      - name: Up docker compose
+      - name: apply permission
+        run: sudo chmod +x ./script.sh
+      - name: Execute script
         run: sudo ./script.sh
