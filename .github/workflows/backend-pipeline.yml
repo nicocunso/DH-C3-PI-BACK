@@ -19,4 +19,4 @@ jobs:
       - name: moving to project
         run: cd backend/ 
       - name: Up docker compose
-        run: sudo ./script.sh
+        run: ls && ./script.sh
