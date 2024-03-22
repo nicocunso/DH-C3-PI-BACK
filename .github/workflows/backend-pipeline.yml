@@ -17,4 +17,4 @@ jobs:
       - name: Pulling project
         run: git pull
       - name: Up docker compose
-        run: ./backend/script.sh
+        run: sudo ./backend/script.sh
