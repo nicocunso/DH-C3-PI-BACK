@@ -3,6 +3,7 @@ package com.carbook.backend.services;
 import com.carbook.backend.config.JWTService;
 import com.carbook.backend.dtos.AuthResponse;
 import com.carbook.backend.dtos.CrearUsuarioDto;
+import com.carbook.backend.dtos.DetalleUsuarioDto;
 import com.carbook.backend.dtos.IdentificarUsuarioDto;
 import com.carbook.backend.entities.Usuario;
 import com.carbook.backend.entities.RolUsuario;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,7 +20,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,8 +32,22 @@ public class UsuarioService implements UserDetailsService {
     private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;
 
+
     public List<Usuario> find() {
         return usuarioRepository.findAll();
+    }
+
+    public DetalleUsuarioDto findById(Long id){
+        DetalleUsuarioDto detalleUsuarioDto = new DetalleUsuarioDto();
+
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if (usuario.isPresent()){
+            detalleUsuarioDto.setNombre(usuario.get().getNombre());
+            detalleUsuarioDto.setApellido(usuario.get().getApellido());
+            detalleUsuarioDto.setEmail(usuario.get().getEmail());
+            detalleUsuarioDto.setReservas(usuario.get().getReservas());
+        }
+        return detalleUsuarioDto;
     }
 
     public AuthResponse create(CrearUsuarioDto crearUsuario) {
@@ -78,7 +93,10 @@ public class UsuarioService implements UserDetailsService {
         }
     }
 
-
+    public Usuario currentUser(Authentication authentication) {
+        Usuario usuario = (Usuario) authentication.getPrincipal();
+        return usuario;
+    }
     public void updateRole(Long id){
         Optional<Usuario> usuarioBuscado = usuarioRepository.findById(id);
         if (usuarioBuscado.isPresent()){
