@@ -37,21 +37,34 @@ public class ReservaService {
 
     public Optional<Reserva> getById(long id){return reservaRepository.findById(id);}
 
+    public List<LocalDate> getDatesById(Long id){
+        Reserva reserva = reservaRepository.getById(id);
+        List<LocalDate> fechasReservadas = new ArrayList<>();
+        fechasReservadas.add(reserva.getFechaInicio());
+        LocalDate nuevaFecha = reserva.getFechaInicio();
+        do {
+            nuevaFecha = nuevaFecha.plus(1,ChronoUnit.DAYS);
+            fechasReservadas.add(nuevaFecha);
+        } while (!(nuevaFecha.isEqual(reserva.getFechaDevolucion())));
+        return  fechasReservadas;
+    }
+
     public List<LocalDate> getDates(Reserva reserva){
         List<LocalDate> fechasReservadas = new ArrayList<>();
         fechasReservadas.add(reserva.getFechaInicio());
-        LocalDate nuevaFecha;
+        LocalDate nuevaFecha = reserva.getFechaInicio();
         do {
-            nuevaFecha = reserva.getFechaInicio().plus(1,ChronoUnit.DAYS);
+            nuevaFecha = nuevaFecha.plus(1,ChronoUnit.DAYS);
             fechasReservadas.add(nuevaFecha);
-        } while (!nuevaFecha.isEqual(reserva.getFechaDevolucion()));
+        } while (!(nuevaFecha.isEqual(reserva.getFechaDevolucion())));
         return  fechasReservadas;
-
     }
 
 //    @Transactional
     public ReservaResponse save(ReservaRequest reserva) {
         Reserva nuevaReserva = reservaRequestAReserva(reserva);
+        List<LocalDate> diasReservados = getDates(nuevaReserva);
+        nuevaReserva.getAutos().setDiasReservados(diasReservados);
         reservaRepository.save(nuevaReserva); //--> resolver
         return reservaAReservaResponse(nuevaReserva);
     }

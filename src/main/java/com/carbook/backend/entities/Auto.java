@@ -2,6 +2,7 @@ package com.carbook.backend.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.Setter;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -70,4 +72,7 @@ public class Auto {
     @Column
     @OneToMany(mappedBy="autos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Reserva> reservas;
+
+    @JsonIgnore
+    private List<LocalDate> diasReservados;
 }

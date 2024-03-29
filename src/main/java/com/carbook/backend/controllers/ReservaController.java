@@ -4,6 +4,7 @@ import com.carbook.backend.dtos.ReservaRequest;
 import com.carbook.backend.dtos.ReservaResponse;
 import com.carbook.backend.entities.Auto;
 import com.carbook.backend.entities.Reserva;
+import com.carbook.backend.services.AutoService;
 import com.carbook.backend.services.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,15 +21,18 @@ public class ReservaController {
     @Autowired
     private ReservaService reservaService;
 
+    @Autowired
+    private AutoService autoService;
+
     @PostMapping("/registrar")
     public ResponseEntity<ReservaResponse> guardarReserva(@RequestBody ReservaRequest reserva){
         return ResponseEntity.ok(reservaService.save(reserva));
     }
 
 
-    @GetMapping("/fechas")
-    public List<LocalDate> diasReservados(@RequestBody Reserva reserva){
-        return reservaService.getDates(reserva);
+    @GetMapping("/fechas/{id}")
+    public List<LocalDate> diasReservados(@PathVariable Long id){
+        return reservaService.getDatesById(id);
     }
 
     @GetMapping("/{id}")

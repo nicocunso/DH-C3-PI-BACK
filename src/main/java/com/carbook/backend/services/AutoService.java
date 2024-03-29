@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,5 +64,10 @@ public class AutoService {
 
     public void delete(Long id) {
         autoRepository.deleteById(id);
+    }
+
+    public List<LocalDate> listarDiasEnReserva(Long id){
+        Auto auto = autoRepository.getReferenceById(id);
+        return auto.getDiasReservados();
     }
 }
