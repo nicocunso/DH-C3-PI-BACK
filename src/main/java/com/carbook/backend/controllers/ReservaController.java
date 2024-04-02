@@ -2,6 +2,7 @@ package com.carbook.backend.controllers;
 
 import com.carbook.backend.dtos.ReservaRequest;
 import com.carbook.backend.dtos.ReservaResponse;
+import com.carbook.backend.dtos.ReservaUsuarioResponse;
 import com.carbook.backend.entities.Auto;
 import com.carbook.backend.entities.Reserva;
 import com.carbook.backend.services.AutoService;
@@ -36,14 +37,10 @@ public class ReservaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reserva> getById(@PathVariable Long id) {
-        Optional<Reserva> result = reservaService.getById(id);
-        System.out.println(result);
-        if (result.isPresent()) {
-            return ResponseEntity.ok(result.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<ReservaResponse> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(reservaService.getById(id));
     }
+
+
 
 }

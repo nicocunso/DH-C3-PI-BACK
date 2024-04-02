@@ -29,14 +29,19 @@ public class Usuario implements UserDetails {
     private String apellido;
     @Column
     private String email;
+
+    @Column
     @Enumerated(EnumType.ORDINAL)
     private RolUsuario rol;
 
+    @Column
     @JsonIgnore
     @OneToMany(mappedBy="usuarios", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Reserva> reservas;
 
+    @Column
     private String contrasena;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(rol.name()));

@@ -1,6 +1,5 @@
 package com.carbook.backend.dtos;
 
-import com.carbook.backend.entities.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,11 +12,9 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReservaResponse {
+public class ReservaUsuarioResponse {
     private Long id;
-    private UserResponse usuario;
     private LocalDate fechaInicio;
     private LocalDate fechaDevolucion;
-    private Set<Long> idAutos;
-
+    private Long idAuto;
 }

@@ -2,9 +2,8 @@ package com.carbook.backend.controllers;
 
 import com.carbook.backend.dtos.AuthResponse;
 import com.carbook.backend.dtos.CrearUsuarioDto;
-import com.carbook.backend.dtos.DetalleUsuarioDto;
+import com.carbook.backend.dtos.UsuarioReservasDto;
 import com.carbook.backend.dtos.IdentificarUsuarioDto;
-import com.carbook.backend.entities.Auto;
 import com.carbook.backend.entities.Usuario;
 import com.carbook.backend.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -35,7 +33,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DetalleUsuarioDto> getById(@PathVariable Long id) {
+    public ResponseEntity<UsuarioReservasDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(usuarioService.findById(id));
     }
 
