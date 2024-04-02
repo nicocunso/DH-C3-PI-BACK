@@ -1,6 +1,8 @@
 package com.carbook.backend.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,7 +56,8 @@ public class Auto {
     private List<Imagen> imagenes;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    // @JsonBackReference
+    @JsonIgnore
     @JoinColumn(name = "id_tipo_auto")
     private TipoAuto tipo;
 }

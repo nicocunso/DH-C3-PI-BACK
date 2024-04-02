@@ -16,8 +16,6 @@ import java.util.Optional;
 public class AutoService {
     @Autowired
     private AutoRepository autoRepository;
-
-    @Autowired
     private ImagenService imagenService;
     public List<Auto> find() {
         return autoRepository.findAll();
@@ -25,6 +23,10 @@ public class AutoService {
 
     public Optional<Auto> getById(Long id) {
         return autoRepository.findById(id);
+    }
+
+    public List<Auto> listarAutos(Long tipoId) {
+        return autoRepository.findAllByTipoId(tipoId);
     }
 
     public Auto create(Auto auto) {

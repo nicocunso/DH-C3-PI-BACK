@@ -10,10 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+// @Builder
 @Table(name = "tipo_autos")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+// @Data
+// @AllArgsConstructor
+// @NoArgsConstructor
+@Getter
+@Setter
 public class TipoAuto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

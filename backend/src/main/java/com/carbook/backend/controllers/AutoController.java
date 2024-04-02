@@ -21,7 +21,6 @@ import java.util.Optional;
 public class AutoController {
     @Autowired
     private AutoService autoService;
-    @Autowired
     private ImagenService imagenService;
     @GetMapping
     public ResponseEntity<List<Auto>> find() {
@@ -36,6 +35,11 @@ public class AutoController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/categorias/{tipoId}")
+    public ResponseEntity<List<Auto>> listarAutos(@PathVariable Long tipoId){
+        return ResponseEntity.ok(autoService.listarAutos(tipoId));
     }
 
     @PostMapping
