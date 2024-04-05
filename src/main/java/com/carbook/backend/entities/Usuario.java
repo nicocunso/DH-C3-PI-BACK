@@ -1,5 +1,6 @@
 package com.carbook.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
@@ -27,10 +29,18 @@ public class Usuario implements UserDetails {
     private String apellido;
     @Column
     private String email;
+    @Column
     @Enumerated(EnumType.ORDINAL)
     private RolUsuario rol;
 
+    @Column
+    @JsonIgnore
+    @OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Reserva> reservas;
+
+    @Column
     private String contrasena;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(rol.name()));

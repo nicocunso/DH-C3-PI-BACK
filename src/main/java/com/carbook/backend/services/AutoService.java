@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +17,6 @@ import java.util.Optional;
 public class AutoService {
     @Autowired
     private AutoRepository autoRepository;
-
     @Autowired
     private ImagenService imagenService;
     public List<Auto> find() {
@@ -27,13 +27,17 @@ public class AutoService {
         return autoRepository.findById(id);
     }
 
-    public Auto create(Auto auto) {
+    public List<Auto> listarAutos(Long tipoId) {
+        return autoRepository.findAllByTipoId(tipoId);
+    }
+
+    public Auto create(Auto auto, MultipartFile[] imageFiles) throws IOException {
         //1. guardamos el auto
         Auto autocreado = autoRepository.save(auto);
         //2. Cargamos las imagenes
-        // List<Imagen> uploadedFiles = imagenService.upload(autocreado.getId(),imageFiles);
+        List<Imagen> uploadedFiles = imagenService.upload(autocreado.getId(),imageFiles);
         //3. Setteamos el valor del campo 'imagenes' con las imagenes cargadas
-        // autocreado.setImagenes(uploadedFiles);
+        autocreado.setImagenes(uploadedFiles);
         //4. Retornamos el autocreado
         return autocreado;
     }
@@ -63,5 +67,10 @@ public class AutoService {
 
     public void delete(Long id) {
         autoRepository.deleteById(id);
+    }
+
+    public List<LocalDate> listarDiasEnReserva(Long id){
+        Auto auto = autoRepository.getReferenceById(id);
+        return auto.getDiasReservados();
     }
 }

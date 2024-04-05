@@ -1,17 +1,28 @@
 package com.carbook.backend.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "autos")
 @Getter
 @Setter
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Auto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +49,7 @@ public class Auto {
     private Integer kilometraje;
 
     @Column(name = "precio_x_dia")
-    private Integer precioXDia;
+    private Double precioXDia;
 
     @Column
     private String estado;
@@ -55,6 +66,14 @@ public class Auto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
+    // @JsonIgnore
     @JoinColumn(name = "id_tipo_auto")
     private TipoAuto tipo;
+
+    @Column
+    @OneToMany(mappedBy="auto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Reserva> reservas;
+
+    @JsonIgnore
+    private List<LocalDate> diasReservados;
 }

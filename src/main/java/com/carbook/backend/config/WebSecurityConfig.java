@@ -40,10 +40,17 @@ public class WebSecurityConfig {
                 new AntPathRequestMatcher("/demo/publico"),
                 new AntPathRequestMatcher("/auth/**"),
                 new AntPathRequestMatcher("/autos/**"),
+                new AntPathRequestMatcher("/autos/**/imagenes"),
+                new AntPathRequestMatcher("/categorias"),
+                new AntPathRequestMatcher("/categorias/**/autos"),
                 new AntPathRequestMatcher("/usuario/admin/**"),
                 new AntPathRequestMatcher("/usuarios"),
+                new AntPathRequestMatcher("/usuarios/**"),
+                new AntPathRequestMatcher("/usuarios/roles/**"),
                 new AntPathRequestMatcher("/usuarios/identificar"),
-                new AntPathRequestMatcher("/autos/**/imagenes")
+                new AntPathRequestMatcher("/reservas/autos/**"),
+                new AntPathRequestMatcher("/reservas/registrar")
+
         );
     }
 }
