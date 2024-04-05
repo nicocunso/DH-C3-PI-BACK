@@ -31,4 +31,4 @@ jobs:
       - name: Upping containers
         run: sudo docker compose up -d
       - name: Upping database
-        run: sudo docker compose up -d
+        run: cd Database-Docker && sudo docker compose up -d
