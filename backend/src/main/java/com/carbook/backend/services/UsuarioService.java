@@ -3,14 +3,20 @@ package com.carbook.backend.services;
 import com.carbook.backend.config.JWTService;
 import com.carbook.backend.dtos.AuthResponse;
 import com.carbook.backend.dtos.CrearUsuarioDto;
+import com.carbook.backend.dtos.DetalleUsuarioDto;
 import com.carbook.backend.dtos.IdentificarUsuarioDto;
+import com.carbook.backend.dtos.*;
+import com.carbook.backend.entities.Reserva;
 import com.carbook.backend.entities.Usuario;
 import com.carbook.backend.entities.RolUsuario;
+import com.carbook.backend.repository.ReservaRepository;
 import com.carbook.backend.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,6 +27,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -30,9 +37,27 @@ public class UsuarioService implements UserDetailsService {
     private final PasswordEncoder passwordEncoder;
     private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;
+    @Autowired
+    private final ReservaRepository reservaRepository;
+
+    ModelMapper modelMapper = new ModelMapper();
 
     public List<Usuario> find() {
         return usuarioRepository.findAll();
+    }
+
+    public UsuarioReservasDto findById(Long id){
+        UsuarioReservasDto usuarioReservasDto = new UsuarioReservasDto();
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+
+        if (usuario.isPresent()){
+            List<Reserva> reservas = reservaRepository.findByUsuarioId(usuario.get().getId());
+            usuarioReservasDto.setNombre(usuario.get().getNombre());
+            usuarioReservasDto.setApellido(usuario.get().getApellido());
+            usuarioReservasDto.setEmail(usuario.get().getEmail());
+            usuarioReservasDto.setReservas(reservaAReservaUsuarioResponse(reservas));
+        }
+        return usuarioReservasDto;
     }
 
     public List<Usuario> findByRol(Integer rol) {
@@ -83,6 +108,10 @@ public class UsuarioService implements UserDetailsService {
         }
     }
 
+    public Usuario currentUser(Authentication authentication) {
+        Usuario usuario = (Usuario) authentication.getPrincipal();
+        return usuario;
+    }
 
     public void updateRole(Long id){
         Optional<Usuario> usuarioBuscado = usuarioRepository.findById(id);
@@ -96,5 +125,29 @@ public class UsuarioService implements UserDetailsService {
                 usuarioRepository.save(usuario);
             }
         }
+    }
+
+    public UserResponse usuarioARespuestaUsuario(Usuario usuario){
+        UserResponse userResponse = new UserResponse();
+        userResponse.setId(usuario.getId());
+        userResponse.setNombre(usuario.getNombre());
+        userResponse.setApellido(usuario.getApellido());
+        userResponse.setEmail(usuario.getEmail());
+        return userResponse;
+    }
+
+    public List<ReservaUsuarioResponse> reservaAReservaUsuarioResponse(List<Reserva> reservas){
+        List<ReservaUsuarioResponse> reservaUsuarioResponses = new ArrayList<>();
+
+        for (Reserva reserva : reservas) {
+            ReservaUsuarioResponse reservaDTO = new ReservaUsuarioResponse();
+            reservaDTO.setId(reserva.getId());
+            reservaDTO.setFechaInicio(reserva.getFechaInicio());
+            reservaDTO.setFechaDevolucion(reserva.getFechaDevolucion());
+            reservaDTO.setIdAuto(reserva.getAuto().getId());
+            reservaUsuarioResponses.add(reservaDTO);
+        }
+
+        return reservaUsuarioResponses;
     }
 }

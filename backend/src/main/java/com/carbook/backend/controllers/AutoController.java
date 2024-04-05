@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,12 +43,17 @@ public class AutoController {
         return ResponseEntity.ok(autoService.listarAutos(tipoId));
     }
 
-    @PostMapping
-    public ResponseEntity<Auto> create(@RequestBody Auto auto) {
-        //1. se convierte el string auto a un objeto Auto para interactuar con el servicio
-        // Auto autoObj = convertToAuto(auto);
+    @GetMapping("/{id}/reservas")
+    public List<LocalDate> getDiasReservados(@PathVariable Long id){
+        return autoService.listarDiasEnReserva(id);
+    }
 
-        return ResponseEntity.ok(autoService.create(auto));
+    @PostMapping
+    public ResponseEntity<Auto> create(@RequestPart MultipartFile[] imageFiles, @RequestPart String auto) throws IOException {
+        //1. se convierte el string auto a un objeto Auto para interactuar con el servicio
+        Auto autoObj = convertToAuto(auto);
+
+        return ResponseEntity.ok(autoService.create(autoObj,imageFiles));
     }
 
     private Auto convertToAuto(String autoObj) throws JsonProcessingException {

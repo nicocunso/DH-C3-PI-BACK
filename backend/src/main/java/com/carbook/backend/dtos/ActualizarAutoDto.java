@@ -10,7 +10,7 @@ import lombok.Setter;
 public class ActualizarAutoDto {
     private Long id;
     private Integer kilometraje;
-    private Integer precioXDia;
+    private Double precioXDia;
     private String estado;
     private Integer aireAcondicionado;
     private TipoAuto tipo;
