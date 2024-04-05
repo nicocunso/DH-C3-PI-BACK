@@ -6,6 +6,7 @@ import com.carbook.backend.dtos.ReservaUsuarioResponse;
 import com.carbook.backend.dtos.ReservasRequest;
 import com.carbook.backend.entities.Auto;
 import com.carbook.backend.entities.Reserva;
+import com.carbook.backend.entities.Usuario;
 import com.carbook.backend.services.AutoService;
 import com.carbook.backend.entities.TipoAuto;
 import com.carbook.backend.services.ReservaService;
@@ -57,4 +58,8 @@ public class ReservaController {
         return ResponseEntity.ok(reservaService.listarFechasReservasPorAuto(autoId));
     }
 
+    @GetMapping("/usuarios")
+    public ResponseEntity<List<Reserva>> findByUser() {
+        return ResponseEntity.ok(reservaService.findByUser());
+    }
 }
