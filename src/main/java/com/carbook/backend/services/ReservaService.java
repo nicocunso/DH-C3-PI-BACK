@@ -1,9 +1,6 @@
 package com.carbook.backend.services;
 
-import com.carbook.backend.dtos.ReservaRequest;
-import com.carbook.backend.dtos.ReservaResponse;
-import com.carbook.backend.dtos.ReservaUsuarioResponse;
-import com.carbook.backend.dtos.UsuarioReservasDto;
+import com.carbook.backend.dtos.*;
 import com.carbook.backend.entities.Auto;
 import com.carbook.backend.entities.Imagen;
 import com.carbook.backend.entities.Reserva;
@@ -89,36 +86,21 @@ public class ReservaService {
     }
 
     @Transactional
-    public ReservaResponse save(ReservaRequest reserva) {
+    public Reserva save(Reserva reserva) {
         // se convierte la reservaRequest a reserva
         Reserva nuevaReserva = reservaRequestAReserva(reserva);
-        // se obtienen las fechas reservadas del auto
-        List<LocalDate> diasReservados = new ArrayList<>();
-        Optional<Auto> auto = autoService.getById(reserva.getIdAuto());
-        if(auto.isPresent()){
-            diasReservados = auto.get().getDiasReservados();
-
-        }
-        // se agregan las fechas nuevas a los dias reservados del auto
-        List<LocalDate> nuevosDiasReservados = getDates(nuevaReserva);
-        diasReservados.addAll(nuevosDiasReservados);
-
-        // se settea la nueva lista de fechas
-        nuevaReserva.getAuto().setDiasReservados(diasReservados);
         // se guarda la reserva
-        reservaRepository.save(nuevaReserva);
-        return reservaAReservaResponse(nuevaReserva);
+        return reservaRepository.save(nuevaReserva);
     }
 
     @Transactional
-    private Reserva reservaRequestAReserva (ReservaRequest reservaRequest){
+    private Reserva reservaRequestAReserva (Reserva reservaRequest){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         // conversion manual
-        Reserva reserva=new Reserva();
-        System.out.println(authentication);
+        Reserva reserva = new Reserva();
         Usuario usuario = usuarioService.currentUser(authentication);
-        Auto auto = autoService.getById(reservaRequest.getIdAuto()).orElseThrow();
+        Auto auto = autoService.getById(reservaRequest.getAuto().getId()).orElseThrow();
         reserva.setFechaInicio(reservaRequest.getFechaInicio());
         reserva.setFechaDevolucion(reservaRequest.getFechaDevolucion());
         reserva.setUsuario(usuario);
@@ -141,5 +123,9 @@ public class ReservaService {
         reservaResponse.setFechaDevolucion(reserva.getFechaDevolucion());
 
         return reservaResponse;
+    }
+
+    public List<Long> getAllByDate (ReservasRequest reservasRequest){
+        return reservaRepository.findAllByDate(reservasRequest.getFechaInicio(), reservasRequest.getFechaDevolucion());
     }
 }

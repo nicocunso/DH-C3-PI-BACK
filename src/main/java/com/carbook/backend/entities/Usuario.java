@@ -35,7 +35,7 @@ public class Usuario implements UserDetails {
 
     @Column
     @JsonIgnore
-    @OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Reserva> reservas;
 
     @Column
