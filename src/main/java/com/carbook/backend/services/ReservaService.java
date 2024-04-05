@@ -39,6 +39,15 @@ public class ReservaService {
     private UsuarioService usuarioService;
 
 
+    public List<Reserva> findByUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        // conversion manual
+        Usuario usuario = usuarioService.currentUser(authentication);
+        List<Reserva> reservas = reservaRepository.findByUsuarioId(usuario.getId());
+        return reservas;
+    }
+
     public ReservaResponse getById(long id){
         Optional<Reserva> reserva = reservaRepository.findById(id);
         if (reserva.isPresent()){
